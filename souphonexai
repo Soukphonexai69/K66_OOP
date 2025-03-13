@@ -1,24 +1,71 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/PC/Downloads/code",
-      "program": "c:/Users/PC/Downloads/code/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+#include <iostream>
+#include <string>
+
+class Student {
+private:
+    std::string name;
+    int id;
+    float gpa;
+
+public:
+    // Constructor để khởi tạo sinh viên với các giá trị đầu vào
+    Student(std::string studentName, int studentId, float studentGpa) {
+        name = studentName;
+        id = studentId;
+        gpa = studentGpa;
     }
-  ]
+
+    // Getter và setter cho thuộc tính name
+    std::string getName() {
+        return name;
+    }
+
+    void setName(std::string studentName) {
+        name = studentName;
+    }
+
+    // Getter và setter cho thuộc tính id
+    int getId() {
+        return id;
+    }
+
+    void setId(int studentId) {
+        id = studentId;
+    }
+
+    // Getter và setter cho thuộc tính gpa
+    float getGpa() {
+        return gpa;
+    }
+
+    void setGpa(float studentGpa) {
+        gpa = studentGpa;
+    }
+
+    // Phương thức để hiển thị thông tin sinh viên
+    void displayInfo() {
+        std::cout << "Student Name: " << name << std::endl;
+        std::cout << "Student ID: " << id << std::endl;
+        std::cout << "Student GPA: " << gpa << std::endl;
+    }
+};
+
+int main() {
+    // Tạo đối tượng Student với constructor
+    Student student1("John Doe", 12345, 3.75);
+
+    // Hiển thị thông tin sinh viên
+    student1.displayInfo();
+
+    // Cập nhật thông tin sinh viên
+    student1.setName("Jane Smith");
+    student1.setId(67890);
+    student1.setGpa(3.85);
+
+    // Hiển thị lại thông tin sinh viên sau khi cập nhật
+    std::cout << "\nUpdated Student Info:" << std::endl;
+    student1.displayInfo();
+
+    return 0;
 }
+
